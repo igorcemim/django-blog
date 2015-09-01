@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% load bootstrap_pagination %}
+{% load thumbnail %}
+
+{% block title %} - Home{% endblock %}
+
+{% block content %}
+
+    {% if posts|length > 0 %}
+    {% for post in posts %}
+        <div class="media">
+            <div class="media-left">
+                <a href="#">
+                    {% thumbnail post.image "220x300" crop="center" as im %}
+                        <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                    {% endthumbnail %}
+                </a>
+            </div>
+            <div class="media-body">
+                <p><em>{{ post.date }}</em></p>
+
+                <h2 class="media-heading">{{ post.title }}</h2>
+
+                <p><strong>Quantidade de páginas:</strong> {{ post.pages }}</p>
+
+                {% if post.author %}
+                <p><strong>Tradutor:</strong> {{ post.author }}</p>
+                {% endif %}
+
+                {% if post.categories.all|length > 0 %}
+                    <p><strong>Categorias:</strong>
+                        {% for category in post.categories.all %}
+                        <a href="{% url 'home' %}?category={{ category.id }}">{{ category.title }}</a>
+                        {% endfor %}
+                    </p>
+                {% endif %}
+
+                <a href="#" class="btn btn-success visualizar">Visualizar</a>
+            </div>
+        </div>
+    {% endfor %}
+    {% else %}
+        <p>Nenhum resultado encontrado.</p>
+    {% endif %}
+
+    {% bootstrap_paginate posts range=10 show_prev_next="true" show_first_last="true" %}
+
+{% endblock %}
