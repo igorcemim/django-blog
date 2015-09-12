@@ -1,0 +1,13 @@
+{% extends "admin/base_site.html" %}
+
+{% block breadcrumbs %}
+    <div class="breadcrumbs">
+        <a href="{% url 'admin:index' %}">Home</a> ›
+        <a href="{% url 'admin:blog_category_changelist' %}">Categorias</a> ›
+        View Customizada
+    </div>
+{% endblock %}
+
+{% block content %}
+{{ mensagem }}
+{% endblock %}

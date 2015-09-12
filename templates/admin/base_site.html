@@ -1,0 +1,18 @@
+{% extends "admin/base.html" %}
+
+{% block title %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
+
+{% block branding %}
+<h1 id="site-name"><a href="{% url 'admin:index' %}">{{ site_header|default:_('Django administration') }}</a></h1>
+{% endblock %}
+
+{% block nav-global %}
+    <style type="text/css">
+    .navbar li { margin: 10px 10px; display: block; float: left; }
+    </style>
+
+    <ul class="navbar">
+        <li><a href="{% url 'admin:index' %}">Home</a></li>
+        <li><a href="{% url 'admin:blog_category_myview' %}">View customizada</a></li>
+    </ul>
+{% endblock %}

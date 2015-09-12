@@ -6,7 +6,7 @@ from django.utils.translation import gettext as _
 class Config(models.Model):
 
     title = models.CharField(_("Título do site"), max_length=200)
-    status = models.BooleanField(_("Ativo"))
+    status = models.BooleanField(_("Ativo"), default=False)
 
     def __unicode__(self):
         return u'%s' % self.title
@@ -21,6 +21,7 @@ class Gallery(models.Model):
     date = models.DateField(_("Data"))
     title = models.CharField(_("Título"), max_length=200)
     slug = models.SlugField(_("Slug"))
+    published = models.BooleanField(_("Publicado"), default=False)
 
     def __unicode__(self):
         return u'%s' % self.title
@@ -33,6 +34,7 @@ class Gallery(models.Model):
 class Category(models.Model):
 
     title = models.CharField(_("Título"), max_length=100)
+    published = models.BooleanField(_("Publicado"), default=False)
 
     def __unicode__(self):
         return u'%s' % self.title
@@ -40,6 +42,7 @@ class Category(models.Model):
     class Meta:
         verbose_name = _("categoria")
         verbose_name_plural = _("categorias")
+        permissions = (("myview", "View customizada"),)
 
 
 class Post(models.Model):
@@ -51,6 +54,7 @@ class Post(models.Model):
     gallery = models.ForeignKey(Gallery, verbose_name=_("Galeria"))
     image = models.ImageField(_("Imagem Destaque"))
     categories = models.ManyToManyField(Category, verbose_name=_("Categorias"))
+    published = models.BooleanField(_("Publicado"), default=False)
 
     def __unicode__(self):
         return u'%s' % self.title
