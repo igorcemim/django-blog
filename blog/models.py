@@ -68,7 +68,9 @@ class Post(models.Model):
 class GalleryImage(models.Model):
 
     image = models.ImageField(_("Imagem"))
-    gallery = models.ForeignKey(Gallery, related_name="imagens", verbose_name="Galeria")
+    gallery = models.ForeignKey(Gallery,
+                                related_name="imagens",
+                                verbose_name="Galeria")
 
     class Meta:
         verbose_name = _("imagem")
