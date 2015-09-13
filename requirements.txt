@@ -1,6 +1,6 @@
-reportlab
-Django==1.8
-django-bootstrap-pagination==1.5
-Pillow==2.9
-sorl-thumbnail==12
-virtualenv==13
+reportlab>=3
+Django>=1.8
+django-bootstrap-pagination>=1.5
+Pillow>=2.9
+sorl-thumbnail>=12
+virtualenv>=13
