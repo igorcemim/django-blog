@@ -1,5 +1,6 @@
-Django==1.8.4
-django-bootstrap-pagination==1.5.1
-Pillow==2.9.0
-sorl-thumbnail==12.3
-virtualenv==13.1.2
+reportlab
+Django==1.8
+django-bootstrap-pagination==1.5
+Pillow==2.9
+sorl-thumbnail==12
+virtualenv==13
