@@ -3,6 +3,7 @@
 {% block breadcrumbs %}
     <div class="breadcrumbs">
         <a href="{% url 'admin:index' %}">Home</a> ›
+        <a href="{% url 'admin:app_list' 'blog' %}">Blog</a> ›
         <a href="{% url 'admin:blog_category_changelist' %}">Categorias</a> ›
         View Customizada
     </div>

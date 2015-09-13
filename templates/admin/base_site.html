@@ -13,6 +13,8 @@
 
     <ul class="navbar">
         <li><a href="{% url 'admin:index' %}">Home</a></li>
+        {% if perms.blog.myview %}
         <li><a href="{% url 'admin:blog_category_myview' %}">View customizada</a></li>
+        {% endif %}
     </ul>
 {% endblock %}

@@ -5,3 +5,4 @@ media/*
 static_files/*
 !static_files/.gitkeep
 locale/*
+.idea
